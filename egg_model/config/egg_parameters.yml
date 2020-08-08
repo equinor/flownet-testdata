@@ -3,9 +3,9 @@ name: EGG
 flownet:
   data_source:
     input_case: ../input_model/EGG_MODEL_ECL
-  cell_length: 5
-  additional_flow_nodes: 30
-  additional_node_candidates: 100
+  cell_length: 10
+  additional_flow_nodes: 100
+  additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
   perforation_handling_strategy: bottom_point #bottom_point #multiple
@@ -39,7 +39,7 @@ model_parameters:
     min: 0.05
     max: 0.3
   bulkvolume_mult:
-    mean: 20
+    min: 1
     max: 30
   relative_permeability:
     scheme: global
