@@ -1,9 +1,9 @@
 This directory contains the input data file and results for the Egg model [1].
 
-Modifications: 
-(1) COMPAT section is change to have diferences in depth between injectors and producers. With this we avoid problems related to degenerate tetrahedron tha we obtaing in the triagulation for the network generation.
-(2) The section PROPS is saved as a indepedent file `PROPS.inc`.     
-(3) Output variables of interest have been specified. 
+Modifications:
+(1) COMPAT section is changed to have differences in depth between injectors and producers. With this, we avoid problems related to degenerate tetrahedron that we obtain in the triangulation procedure for the network generation.
+(2) The section PROPS is saved as an independent file `PROPS.inc`.    
+(3) Output variables of interest have been specified in the SUMMARY section.
 
 [1] J.D.Jansen (2013): The Egg Model - data files. 4TU.ResearchData. Dataset.
     https://doi.org/10.4121/uuid:916c86cd-3558-4672-829a-105c62985ab2
