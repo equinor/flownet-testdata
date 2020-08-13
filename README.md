@@ -26,3 +26,5 @@ to keep repository size as small as possible.
 ## License / Acknowledgements
 
 - The [Norne input model](./norne/input_model) comes from the OPM project, where it is available under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).
+
+- The [Egg input model](./egg_model/input_model) comes from 4TU.Centre for Research Data, where it is available under the [General terms of use for4TU.CentreforResearch Data](https://data.4tu.nl/articles/online_resource/General_terms_of_use_for_4TU_Centre_for_Research_Data/12721292).
