@@ -5,5 +5,5 @@
 
 
 <p align="center">
-  <img height="150" src="./sintef_logo.jpg">
+  <img height="70" src="./sintef_logo.jpg">
 </p>
