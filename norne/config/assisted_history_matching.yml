@@ -2,7 +2,7 @@ name: Norne
 
 flownet:
   data_source:
-    input_case: ../tests/data/norne/NORNE_ATW2013
+    input_case: ../input_model/norne/NORNE_ATW2013
   phases:
     - oil
     - gas
