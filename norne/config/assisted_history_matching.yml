@@ -11,7 +11,7 @@ flownet:
     - disgas
     - water
   pvt:
-    rsvd: rsvd.csv
+    rsvd: norne_static/rsvd.csv
   cell_length: 100
   additional_flow_nodes: 100
   additional_node_candidates: 1000
