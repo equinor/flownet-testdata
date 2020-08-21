@@ -3,6 +3,7 @@ name: Norne
 flownet:
   data_source:
     input_case: ../input_model/norne/NORNE_ATW2013
+    concave_hull: True
   phases:
     - oil
     - gas
@@ -18,6 +19,7 @@ flownet:
   fast_pyscal: True
   training_set_end_date: 2005-01-31 #YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
+  max_distance_fraction: 0.15
 
 ert:
   static_include_files: ../config/norne_static
