@@ -4,6 +4,7 @@ flownet:
   data_source:
     simulation:
       input_case: ../input_model/egg/EGG_MODEL_ECL
+      vectors:
         WTHP:
           rel_error: 0.05
           min_error: 5
