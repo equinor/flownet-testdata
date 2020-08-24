@@ -2,7 +2,7 @@ name: Norne
 
 flownet:
   data_source:
-    input_case: ../tests/data/norne/NORNE_ATW2013
+    input_case: ../input_model/norne/NORNE_ATW2013
     concave_hull: True
   phases:
     - oil
@@ -11,7 +11,7 @@ flownet:
     - disgas
     - water
   pvt:
-    rsvd: ./examples/norne_static/rsvd.csv
+    rsvd: norne_static/rsvd.csv
   cell_length: 100
   additional_flow_nodes: 100
   additional_node_candidates: 1000
