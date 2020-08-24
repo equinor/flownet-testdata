@@ -1,11 +1,11 @@
-name: Norne
+name: Egg
 
 ert:
   pred_schedule_file: ./trivial_prediction_schedule.sch
   static_include_files: ./egg_static
   realizations:
     num_realizations: 250
-    required_success_percent: 20
+    required_success_percent: 80
     max_runtime: 300 # Maximum runtime of on single realization in seconds
   simulator:
     name: Flow
