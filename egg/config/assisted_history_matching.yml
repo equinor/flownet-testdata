@@ -3,6 +3,9 @@ name: EGG
 flownet:
   data_source:
     input_case: ../input_model/EGG_MODEL_ECL
+  phases:
+    - oil
+    - water
   cell_length: 10
   additional_flow_nodes: 50
   additional_node_candidates: 1000
