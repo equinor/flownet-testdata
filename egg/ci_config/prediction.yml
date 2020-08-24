@@ -11,5 +11,4 @@ ert:
     name: Flow
   queue:
     system: LOCAL # LOCAL or LSF
-    name: mr # ignored when system is LOCAL
-    max_running: 10 # Maximum number of simultaneous runs
+    max_running: 2 # Maximum number of simultaneous runs
