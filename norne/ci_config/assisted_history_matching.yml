@@ -2,8 +2,8 @@ name: Norne
 
 flownet:
   data_source:
-  simulation:
-    input_case: ../tests/data/norne/NORNE_ATW2013
+    simulation:
+      input_case: ../input_model/norne/NORNE_ATW2013
       vectors:
         WTHP:
           rel_error: 0.05
