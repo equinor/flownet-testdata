@@ -2,7 +2,23 @@ name: Egg
 
 flownet:
   data_source:
-    input_case: ../input_model/egg/EGG_MODEL_ECL
+    simulation:
+      input_case: ../input_model/egg/EGG_MODEL_ECL
+        WTHP:
+          rel_error: 0.05
+          min_error: 5
+        WBHP:
+          rel_error: 0.05
+          min_error: 10
+        WOPR:
+          rel_error: 0.1
+          min_error: 50
+        WGPR:
+          rel_error: 0.1
+          min_error: 100000
+        WWPR:
+          rel_error: 0.1
+          min_error: 50      
   phases:
     - oil
     - water
