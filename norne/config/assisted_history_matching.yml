@@ -21,7 +21,7 @@ flownet:
           rel_error: 0.1
           min_error: 50
     concave_hull: True
-
+  phases:
     - oil
     - gas
     - vapoil
