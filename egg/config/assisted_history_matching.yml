@@ -19,7 +19,7 @@ flownet:
           min_error: 100000
         WWPR:
           rel_error: 0.01
-          min_error: 1    
+          min_error: 1
   phases:
     - oil
     - water
