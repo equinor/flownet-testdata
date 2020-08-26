@@ -11,9 +11,9 @@ flownet:
   additional_node_candidates: 100
   hull_factor: 1.2
   random_seed: 999
-  perforation_handling_strategy: bottom_point #bottom_point #multiple
-  fast_pyscal: True
-  training_set_fraction: 0.8 # Fraction of observations (from 0 to 1) to use as training data
+  perforation_handling_strategy: bottom_point  # bottom_point #multiple
+  fast_pyscal: true
+  training_set_fraction: 0.8  # Fraction of observations (from 0 to 1) to use as training data
   fault_tolerance: 0.1
 ert:
   static_include_files: ../config/egg_static
@@ -27,7 +27,7 @@ ert:
     max_running: 2
   ensemble_weights:
     - 1
-   
+
 model_parameters:
   permeability:
     min: 10
