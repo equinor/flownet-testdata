@@ -20,7 +20,7 @@ flownet:
         WWPR:
           rel_error: 0.1
           min_error: 50
-    concave_hull: True
+    concave_hull: true
   phases:
     - oil
     - gas
@@ -33,8 +33,8 @@ flownet:
   hull_factor: 1.2
   random_seed: 999
   perforation_handling_strategy: bottom_point
-  fast_pyscal: True
-  training_set_end_date: 2005-01-31 #YYYY-MM-DD. If defined training set fraction is calculated from this date
+  fast_pyscal: true
+  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
   max_distance_fraction: 0.15
 
@@ -130,4 +130,4 @@ model_parameters:
     size_in_bulkvolumes:
       min: 1
       max: 2
-      loguniform: True
+      loguniform: true
