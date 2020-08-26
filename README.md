@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/equinor/flownet-testdata/workflows/flownet-testdata/badge.svg)](https://github.com/equinor/flownet-testdata/actions?query=branch%3Amaster)
+
 # Testdata for `flownet`
 
 This repository contains some open example data to be used by
