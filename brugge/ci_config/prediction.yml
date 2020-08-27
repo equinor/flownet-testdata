@@ -13,3 +13,4 @@ ert:
     system: LOCAL # LOCAL or LSF
     name: mr # ignored when system is LOCAL
     max_running: 5 # Maximum number of simultaneous runs
+    
