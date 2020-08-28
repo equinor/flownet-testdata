@@ -5,16 +5,10 @@ flownet:
     simulation:
       input_case: ../input_model/egg/EGG_MODEL_ECL
       vectors:
-        WTHP:
-          rel_error: 0.005
-          min_error: 0.5
         WBHP:
           rel_error: 0.005
           min_error: 1
         WOPR:
-          rel_error: 0.01
-          min_error: 1
-        WWPR:
           rel_error: 0.01
           min_error: 1
   phases:

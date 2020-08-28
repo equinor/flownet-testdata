@@ -5,9 +5,6 @@ flownet:
     simulation:
       input_case: ../input_model/norne/NORNE_ATW2013
       vectors:
-        WTHP:
-          rel_error: 0.05
-          min_error: 5
         WBHP:
           rel_error: 0.05
           min_error: 10
@@ -17,9 +14,6 @@ flownet:
         WGPR:
           rel_error: 0.1
           min_error: 100000
-        WWPR:
-          rel_error: 0.1
-          min_error: 50
     concave_hull: true
   phases:
     - oil
