@@ -30,10 +30,10 @@ flownet:
   random_seed: 999
   perforation_handling_strategy: bottom_point  # bottom_point #multiple
   fast_pyscal: true
-  training_set_fraction: 0.8  # Fraction of observations (from 0 to 1) to use as training data
+  training_set_fraction: 0.8  # Fraction of observations to use as training data
   fault_tolerance: 0.1
 ert:
-  static_include_files: ../input_model/
+  static_include_files: ./egg_static
   realizations:
     num_realizations: 250
     required_success_percent: 80
@@ -52,6 +52,13 @@ ert:
     - 1
     - 1
     - 1
+  analysis:
+    metric: "[RMSE,MAE]"
+    quantity: "[WOPR:PROD,WWPR:PROD]"
+    # The quantity vectors must appear in FlowNet and OPM-Flow summary files
+    start: "2011-01-01"
+    end: "2016-06-01"
+    outfile: analysis_metrics_iteration
 
 model_parameters:
   permeability:
