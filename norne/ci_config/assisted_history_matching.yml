@@ -28,22 +28,22 @@ flownet:
     - disgas
     - water
   cell_length: 100
-  additional_flow_nodes: 100
-  additional_node_candidates: 1000
+  additional_flow_nodes: 2
+  additional_node_candidates: 100
   hull_factor: 1.2
   random_seed: 999
   perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
   training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
-  max_distance_fraction: 0.15
+  max_distance_fraction: 0.05
 
 ert:
   static_include_files: ../config/norne_static
   realizations:
     num_realizations: 2
     required_success_percent: 40
-    max_runtime: 600
+    max_runtime: 180
   queue:
     system: LOCAL
     name: mr
