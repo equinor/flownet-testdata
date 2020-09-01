@@ -25,7 +25,7 @@ flownet:
   additional_flow_nodes: 100
   additional_node_candidates: 1000
   hull_factor: 1.2
-  random_seed: 999
+  random_seed: 9999
   perforation_handling_strategy: bottom_point
   fast_pyscal: true
   training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
