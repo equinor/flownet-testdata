@@ -14,7 +14,7 @@ flownet:
         WGPR:
           rel_error: 0.1
           min_error: 100000
-    concave_hull: false
+    concave_hull: true
   phases:
     - oil
     - gas
