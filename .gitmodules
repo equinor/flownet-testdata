@@ -1,0 +1,3 @@
+[submodule "brugge/input_model"]
+	path = brugge/input_model
+	url = https://github.com/TNO/Brugge.git
