@@ -5,9 +5,6 @@ flownet:
     simulation:
       input_case: ../input_model/norne/NORNE_ATW2013
       vectors:
-        WTHP:
-          rel_error: 0.05
-          min_error: 5
         WBHP:
           rel_error: 0.05
           min_error: 10
@@ -17,9 +14,6 @@ flownet:
         WGPR:
           rel_error: 0.1
           min_error: 100000
-        WWPR:
-          rel_error: 0.1
-          min_error: 50
     concave_hull: true
   phases:
     - oil
@@ -34,7 +28,7 @@ flownet:
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
-  perforation_handling_strategy: bottom_point
+  perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
   training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
