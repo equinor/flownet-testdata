@@ -57,6 +57,12 @@ ert:
     - 1
     - 1
     - 1
+  analysis:
+    metric: "[RMSE,MAE]"
+    quantity: "[WOPR:B-,WWPR:B-]"
+    start: "1997-11-06"
+    end: "2005-01-31"
+    outfile: analysis_metrics_iteration
 
 model_parameters:
   permeability:
