@@ -92,7 +92,7 @@ model_parameters:
       min: 2.0
       max: 4.5
   equil:
-    regions:
+    eqlnum_region:
       -
         datum_depth: 1700
         datum_pressure:
