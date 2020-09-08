@@ -24,13 +24,13 @@ flownet:
   pvt:
     rsvd: norne_static/rsvd.csv
   cell_length: 100
-  additional_flow_nodes: 100
+  additional_flow_nodes: 200
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
   perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
-  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
+  training_set_end_date: 2005-01-31
   fault_tolerance: 0.1
   max_distance_fraction: 0.15
 
@@ -111,16 +111,68 @@ model_parameters:
       min: 1.5
       max: 2.0
   equil:
-    scheme: individual
-    datum_pressure:
-      min: 250
-      max: 275
-    owc_depth:
-      min: 2675
-      max: 2725
-    goc_depth:
-      min: 2575
-      max: 2600
+    scheme: regions_from_sim
+    regions:
+      -
+        id: 1
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
+      -
+        id: 2
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
+      -
+        id: 3
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
+      -
+        id: 4
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
+      -
+        id: 5
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
   rock_compressibility:
     reference_pressure: 277
     min: 4.8e-5
