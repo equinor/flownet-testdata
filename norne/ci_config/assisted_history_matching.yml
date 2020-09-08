@@ -104,7 +104,7 @@ model_parameters:
       max: 2.0
   equil:
     scheme: regions_from_sim
-    regions:
+    eqlnum_region:
       -
         datum_depth: 2575
         datum_pressure:
