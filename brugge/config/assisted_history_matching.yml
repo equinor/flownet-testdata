@@ -92,13 +92,15 @@ model_parameters:
       min: 2.0
       max: 4.5
   equil:
-    datum_depth: 1700
-    datum_pressure:
-      min: 160
-      max: 180
-    owc_depth:
-      min: 1600
-      max: 1700
+    regions:
+      -
+        datum_depth: 1700
+        datum_pressure:
+          min: 160
+          max: 180
+        owc_depth:
+          min: 1600
+          max: 1700
   rock_compressibility:
     reference_pressure: 170
     min: 6.0e-6

@@ -106,52 +106,52 @@ model_parameters:
     scheme: individual
     regions:
       -
-        datum_depth: 2571
+        datum_depth: 2575
         datum_pressure:
-          min: 251
-          max: 271
+          min: 250
+          max: 275
         owc_depth:
-          min: 2671
-          max: 2721
+          min: 2675
+          max: 2725
         goc_depth:
-          min: 2571
-          max: 2601
-      -
+          min: 2575
+          max: 2600
+      -      -
         id: 1
-        datum_depth: 2572
+        datum_depth: 2575
         datum_pressure:
-          min: 252
-          max: 272
+          min: 250
+          max: 275
         owc_depth:
-          min: 2672
-          max: 2722
+          min: 2675
+          max: 2725
         goc_depth:
-          min: 2572
-          max: 2602
+          min: 2575
+          max: 2600
       -
         id: 2
-        datum_depth: 2573
+        datum_depth: 2575
         datum_pressure:
-          min: 253
-          max: 273
+          min: 250
+          max: 275
         owc_depth:
-          min: 2673
-          max: 2723
+          min: 2675
+          max: 2725
         goc_depth:
-          min: 2573
-          max: 2603
+          min: 2575
+          max: 2600
       -
         id: 3
-        datum_depth: 2574
+        datum_depth: 2575
         datum_pressure:
-          min: 254
-          max: 274
+          min: 250
+          max: 275
         owc_depth:
-          min: 2674
-          max: 2724
+          min: 2675
+          max: 2725
         goc_depth:
-          min: 2574
-          max: 2604
+          min: 2575
+          max: 2600
       -
         id: 4
         datum_depth: 2575
@@ -166,15 +166,15 @@ model_parameters:
           max: 2600
       -
         id: 5
-        datum_depth: 2576
+        datum_depth: 2575
         datum_pressure:
-          min: 256
-          max: 276
+          min: 250
+          max: 275
         owc_depth:
-          min: 2676
-          max: 2726
+          min: 2675
+          max: 2725
         goc_depth:
-          min: 2576
+          min: 2575
           max: 2600
   rock_compressibility:
     reference_pressure: 277
