@@ -37,7 +37,7 @@ flownet:
 ert:
   static_include_files: ./norne_static
   realizations:
-    num_realizations: 10
+    num_realizations: 200
     required_success_percent: 70
     max_runtime: 600   # Maximum runtime of on single realization in seconds
   queue:
@@ -45,9 +45,13 @@ ert:
     name: mr   # ignored when system is LOCAL
     max_running: 10   # Maximum number of simultaneous runs
   ensemble_weights:
-    - 4
-    - 3
-    - 2
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 1
     - 1
     - 1
@@ -126,7 +130,7 @@ model_parameters:
           max: 2600
       -
         id: 1
-        datum_depth: 2575
+        datum_depth: 2582
         datum_pressure:
           min: 250
           max: 275
@@ -138,43 +142,43 @@ model_parameters:
           max: 2600
       -
         id: 2
-        datum_depth: 2575
+        datum_depth: 2500
         datum_pressure:
           min: 250
           max: 275
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2555
+          max: 2615
         goc_depth:
-          min: 2575
-          max: 2600
+          min: 2470
+          max: 2530
       -
         id: 3
-        datum_depth: 2575
+        datum_depth: 2582
         datum_pressure:
           min: 250
           max: 275
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2600
+          max: 2640
         goc_depth:
-          min: 2575
+          min: 2560
           max: 2600
       -
         id: 4
-        datum_depth: 2575
+        datum_depth: 2200
         datum_pressure:
-          min: 250
-          max: 275
+          min: 200
+          max: 250
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2350
+          max: 2450
         goc_depth:
-          min: 2575
-          max: 2600
+          min: 2150
+          max: 2250
       -
         id: 5
-        datum_depth: 2575
+        datum_depth: 2585
         datum_pressure:
           min: 250
           max: 275
