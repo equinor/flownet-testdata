@@ -105,7 +105,7 @@ model_parameters:
   equil:
     scheme: regions_from_sim
     eqlnum_region:
-      -
+      - id:
         datum_depth: 2575
         datum_pressure:
           min: 250
@@ -116,8 +116,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      -
-        id: 1
+
+      - id: 1
         datum_depth: 2575
         datum_pressure:
           min: 250
@@ -128,8 +128,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      -
-        id: 2
+
+      - id: 2
         datum_depth: 2575
         datum_pressure:
           min: 250
@@ -140,8 +140,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      -
-        id: 3
+      
+      - id: 3
         datum_depth: 2575
         datum_pressure:
           min: 250
@@ -152,8 +152,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      -
-        id: 4
+      
+      - id: 4
         datum_depth: 2575
         datum_pressure:
           min: 250
@@ -164,8 +164,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      -
-        id: 5
+      
+      - id: 5
         datum_depth: 2575
         datum_pressure:
           min: 250
