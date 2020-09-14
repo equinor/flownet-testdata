@@ -30,14 +30,14 @@ flownet:
   random_seed: 123456
   perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
-  training_set_end_date: 2005-01-31
+  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
   max_distance_fraction: 0.15
 
 ert:
   static_include_files: ./norne_static
   realizations:
-    num_realizations: 200
+    num_realizations: 10
     required_success_percent: 70
     max_runtime: 600   # Maximum runtime of on single realization in seconds
   queue:
@@ -46,12 +46,8 @@ ert:
     max_running: 10   # Maximum number of simultaneous runs
   ensemble_weights:
     - 4
+    - 3
     - 2
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
     - 1
     - 1
     - 1

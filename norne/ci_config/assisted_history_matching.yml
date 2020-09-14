@@ -29,7 +29,7 @@ flownet:
   random_seed: 999
   perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
-  training_set_end_date: 2005-01-31
+  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.1
   max_distance_fraction: 0.05
 
@@ -158,6 +158,6 @@ model_parameters:
     fraction: 0.25
     delta_depth: 1000
     size_in_bulkvolumes:
-      min: 1.0e-6
+      min: 1
       max: 2
       loguniform: true
