@@ -116,17 +116,6 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      - id: 1
-        datum_depth: 2582
-        datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2675
-          max: 2725
-        goc_depth:
-          min: 2575
-          max: 2600
       - id: 2
         datum_depth: 2500
         datum_pressure:
@@ -160,17 +149,6 @@ model_parameters:
         goc_depth:
           min: 2150
           max: 2250
-      - id: 5
-        datum_depth: 2585
-        datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2675
-          max: 2725
-        goc_depth:
-          min: 2575
-          max: 2600
   rock_compressibility:
     reference_pressure: 277
     min: 4.8e-5
