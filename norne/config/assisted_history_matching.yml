@@ -24,7 +24,7 @@ flownet:
   pvt:
     rsvd: norne_static/rsvd.csv
   cell_length: 100
-  additional_flow_nodes: 200
+  additional_flow_nodes: 100
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
@@ -45,8 +45,8 @@ ert:
     name: mr   # ignored when system is LOCAL
     max_running: 10   # Maximum number of simultaneous runs
   ensemble_weights:
-    - 1
-    - 1
+    - 4
+    - 2
     - 1
     - 1
     - 1
@@ -127,17 +127,6 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-      - id: 1
-        datum_depth: 2582
-        datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2675
-          max: 2725
-        goc_depth:
-          min: 2575
-          max: 2600
       - id: 2
         datum_depth: 2500
         datum_pressure:
@@ -171,17 +160,6 @@ model_parameters:
         goc_depth:
           min: 2150
           max: 2250
-      - id: 5
-        datum_depth: 2585
-        datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2675
-          max: 2725
-        goc_depth:
-          min: 2575
-          max: 2600
   rock_compressibility:
     reference_pressure: 277
     min: 4.8e-5
