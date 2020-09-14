@@ -1,3 +1,4 @@
+---
 name: Norne
 
 flownet:
@@ -28,7 +29,7 @@ flownet:
   random_seed: 999
   perforation_handling_strategy: time_avg_open_location
   fast_pyscal: true
-  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
+  training_set_end_date: 2005-01-31
   fault_tolerance: 0.1
   max_distance_fraction: 0.05
 
@@ -105,8 +106,7 @@ model_parameters:
   equil:
     scheme: regions_from_sim
     eqlnum_region:
-      - id:
-        datum_depth: 2575
+      - datum_depth: 2575
         datum_pressure:
           min: 250
           max: 275
@@ -116,9 +116,8 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-
       - id: 1
-        datum_depth: 2575
+        datum_depth: 2582
         datum_pressure:
           min: 250
           max: 275
@@ -128,45 +127,41 @@ model_parameters:
         goc_depth:
           min: 2575
           max: 2600
-
       - id: 2
-        datum_depth: 2575
+        datum_depth: 2500
         datum_pressure:
           min: 250
           max: 275
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2555
+          max: 2615
         goc_depth:
-          min: 2575
-          max: 2600
-      
+          min: 2470
+          max: 2530
       - id: 3
-        datum_depth: 2575
+        datum_depth: 2582
         datum_pressure:
           min: 250
           max: 275
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2600
+          max: 2640
         goc_depth:
-          min: 2575
+          min: 2560
           max: 2600
-      
       - id: 4
-        datum_depth: 2575
+        datum_depth: 2200
         datum_pressure:
-          min: 250
-          max: 275
+          min: 200
+          max: 250
         owc_depth:
-          min: 2675
-          max: 2725
+          min: 2350
+          max: 2450
         goc_depth:
-          min: 2575
-          max: 2600
-      
+          min: 2150
+          max: 2250
       - id: 5
-        datum_depth: 2575
+        datum_depth: 2585
         datum_pressure:
           min: 250
           max: 275
@@ -185,6 +180,6 @@ model_parameters:
     fraction: 0.25
     delta_depth: 1000
     size_in_bulkvolumes:
-      min: 1
+      min: 1.0e-6
       max: 2
       loguniform: true
