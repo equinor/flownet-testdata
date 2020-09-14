@@ -73,8 +73,9 @@ model_parameters:
       min: 2.5
       max: 5.5
   equil:
-    eqlnum_region:
-      - datum_depth: 4000
+    regions:
+      - id: None
+        datum_depth: 4000
         datum_pressure:
           min: 380
           max: 420

@@ -1,4 +1,3 @@
----
 name: Norne
 
 flownet:
@@ -105,8 +104,9 @@ model_parameters:
       max: 2.0
   equil:
     scheme: regions_from_sim
-    eqlnum_region:
-      - datum_depth: 2575
+    regions:
+      - id: None
+        datum_depth: 2575
         datum_pressure:
           min: 250
           max: 275
