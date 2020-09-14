@@ -111,16 +111,52 @@ model_parameters:
       min: 1.5
       max: 2.0
   equil:
-    scheme: individual
-    datum_pressure:
-      min: 250
-      max: 275
-    owc_depth:
-      min: 2675
-      max: 2725
-    goc_depth:
-      min: 2575
-      max: 2600
+    scheme: regions_from_sim
+    regions:
+      - id: None
+        datum_depth: 2575
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2675
+          max: 2725
+        goc_depth:
+          min: 2575
+          max: 2600
+      - id: 2
+        datum_depth: 2500
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2555
+          max: 2615
+        goc_depth:
+          min: 2470
+          max: 2530
+      - id: 3
+        datum_depth: 2582
+        datum_pressure:
+          min: 250
+          max: 275
+        owc_depth:
+          min: 2600
+          max: 2640
+        goc_depth:
+          min: 2560
+          max: 2600
+      - id: 4
+        datum_depth: 2200
+        datum_pressure:
+          min: 200
+          max: 250
+        owc_depth:
+          min: 2350
+          max: 2450
+        goc_depth:
+          min: 2150
+          max: 2250
   rock_compressibility:
     reference_pressure: 277
     min: 4.8e-5
