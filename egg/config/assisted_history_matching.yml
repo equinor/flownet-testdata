@@ -24,7 +24,7 @@ flownet:
   training_set_fraction: 0.8  # Fraction of observations (from 0 to 1) to use as training data
   fault_tolerance: 0.1
 ert:
-  static_include_files: ../input_model/
+  static_include_files: ./egg_static
   realizations:
     num_realizations: 250
     required_success_percent: 80
