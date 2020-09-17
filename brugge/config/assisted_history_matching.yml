@@ -92,7 +92,7 @@ model_parameters:
           max: 3.5
         now:
           min: 2.0
-          max: 4.5  equil:
+          max: 4.5
   equil:
     regions:
       - id: None
