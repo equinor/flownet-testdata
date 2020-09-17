@@ -1,15 +1,9 @@
-name: Egg
+# Note that this file should ONLY contain settings
+# related to getting CI through in a practical amount of time.
+# All other settings should be set in the base configuration file.
 
 ert:
-  static_include_files: ../config/egg_static
-  pred_schedule_file: ./trivial_prediction_schedule.sch
   realizations:
     num_realizations: 2
-    required_success_percent: 80
-    max_runtime: 300  # Maximum runtime of on single realization in seconds
-  simulator:
-    name: Flow
   queue:
-    system: LOCAL  # LOCAL or LSF
-    name: mr
-    max_running: 2  # Maximum number of simultaneous runs
+    max_running: 2 # Maximum number of simultaneous runs
