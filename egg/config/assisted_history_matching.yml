@@ -56,30 +56,32 @@ model_parameters:
     max: 20
   relative_permeability:
     scheme: global
-    swirr:
-      min: 0.01
-      max: 0.2
-    swl:
-      min: 0.01
-      max: 0.2
-    swcr:
-      min: 0.1
-      max: 0.3
-    sorw:
-      min: 0.05
-      max: 0.3
-    krwend:
-      min: 0.5
-      max: 0.7
-    krowend:
-      min: 0.6
-      max: 0.9
-    nw:
-      min: 1.5
-      max: 4.5
-    now:
-      min: 2.5
-      max: 5.5
+    regions:
+      - id: None
+        swirr:
+          min: 0.01
+          max: 0.2
+        swl:
+          min: 0.01
+          max: 0.2
+        swcr:
+          min: 0.1
+          max: 0.3
+        sorw:
+          min: 0.05
+          max: 0.3
+        krwend:
+          min: 0.5
+          max: 0.7
+        krowend:
+          min: 0.6
+          max: 0.9
+        nw:
+          min: 1.5
+          max: 4.5
+        now:
+          min: 2.5
+          max: 5.5
   equil:
     regions:
       - id: None
