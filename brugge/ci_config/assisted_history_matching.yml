@@ -6,4 +6,3 @@ ert:
   realizations:
     num_realizations: 2
     required_success_percent: 40
-    
