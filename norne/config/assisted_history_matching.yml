@@ -68,7 +68,7 @@ model_parameters:
     loguniform: true
   relative_permeability:
     scheme: global
-    interpolate: True
+    interpolate: true
     regions:
       - id: None
         swirr:
