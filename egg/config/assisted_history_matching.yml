@@ -55,7 +55,7 @@ model_parameters:
     min: 1
     max: 20
   relative_permeability:
-    scheme: global
+    scheme: individual
     regions:
       - id: None
         swirr:

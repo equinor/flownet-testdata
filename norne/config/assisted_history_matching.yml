@@ -67,7 +67,7 @@ model_parameters:
     max: 1
     loguniform: true
   relative_permeability:
-    scheme: individual
+    scheme: global
     interpolate: True
     regions:
       - id: None
