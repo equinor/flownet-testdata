@@ -6,4 +6,4 @@ ert:
   realizations:
     num_realizations: 2
   queue:
-    max_running: 2 # Maximum number of simultaneous runs
+    max_running: 2  # Maximum number of simultaneous runs
