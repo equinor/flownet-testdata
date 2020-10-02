@@ -28,9 +28,9 @@ flownet:
   additional_node_candidates: 1000
   hull_factor: 0.9
   random_seed: 123456
-  perforation_handling_strategy: bottom_point # bottom_point, top_point or multiple
-  fast_pyscal: True
-  training_set_end_date: 2010-01-01 #YYYY-MM-DD. If defined training_set_fraction is calculated from this date
+  perforation_handling_strategy: bottom_point  # bottom_point, top_point or multiple
+  fast_pyscal: true
+  training_set_end_date: 2010-01-01  # YYYY-MM-DD. If defined training_set_fraction is calculated from this date
   fault_tolerance: 1.0e-5
 
 ert:
@@ -64,7 +64,7 @@ model_parameters:
   fault_mult:
     min: 1.0e-9
     max: 1.0e-8
-    loguniform: True
+    loguniform: true
   relative_permeability:
     scheme: global
     regions:
@@ -84,7 +84,7 @@ model_parameters:
         krwend:
           min: 0.5
           max: 0.7
-        krowend:
+        kroend:
           min: 0.3
           max: 0.5
         nw:
@@ -114,4 +114,4 @@ model_parameters:
     size_in_bulkvolumes:
       min: 1.0e-6
       max: 2
-      loguniform: True
+      loguniform: true

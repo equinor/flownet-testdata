@@ -73,7 +73,7 @@ model_parameters:
         krwend:
           min: 0.5
           max: 0.7
-        krowend:
+        kroend:
           min: 0.6
           max: 0.9
         nw:
