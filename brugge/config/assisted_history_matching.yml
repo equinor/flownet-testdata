@@ -66,41 +66,32 @@ model_parameters:
     max: 1.0e-8
     loguniform: true
   relative_permeability:
-    scheme: regions_from_sim
-    interpolate: true
+    scheme: global
     regions:
       - id: None
         swirr:
           min: 0.0
-          base: 0.025
           max: 0.05
         swl:
           min: 0.2
-          base: 0.375
           max: 0.55
         swcr:
           min: 0.0
-          base: 0.025
           max: 0.05
         sorw:
           min: 0.1
-          base: 0.15
           max: 0.2
         krwend:
           min: 0.5
-          base: 0.6
           max: 0.7
         kroend:
           min: 0.3
-          base: 0.4
           max: 0.5
         nw:
           min: 1.5
-          base: 2.5
           max: 3.5
         now:
           min: 2.0
-          base: 3.25
           max: 4.5
   equil:
     regions:
