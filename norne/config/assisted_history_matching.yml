@@ -10,7 +10,7 @@ flownet:
           min_error: 10
         WOPR:
           rel_error: 0.1
-          min_error: 50
+          min_error: 100
         WGPR:
           rel_error: 0.1
           min_error: 100000
@@ -29,46 +29,49 @@ flownet:
   hull_factor: 1.2
   random_seed: 123456
   perforation_handling_strategy: time_avg_open_location
-  fast_pyscal: true
-  training_set_end_date: 2005-01-31  # YYYY-MM-DD. If defined training set fraction is calculated from this date
-  fault_tolerance: 0.1
-  max_distance_fraction: 0.15
+  fast_pyscal: false
+  training_set_end_date: 2005-01-31
+  fault_tolerance: 0.0001
+  max_distance_fraction: 0.10
 
 ert:
   static_include_files: ./norne_static
   realizations:
-    num_realizations: 10
-    required_success_percent: 70
-    max_runtime: 600   # Maximum runtime of on single realization in seconds
+    num_realizations: 250
+    required_success_percent: 20
+    max_runtime: 500
   queue:
-    system: LOCAL   # LOCAL or LSF
-    name: mr   # ignored when system is LOCAL
-    max_running: 10   # Maximum number of simultaneous runs
+    system: LOCAL
+    max_running: 20
   ensemble_weights:
     - 4
-    - 3
     - 2
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 1
     - 1
     - 1
 
 model_parameters:
   permeability:
-    min: 0.1
-    max: 5000
+    min: 1
+    max: 1000
   porosity:
-    min: 0.01
-    max: 0.4
+    min: 0.05
+    max: 0.35
   bulkvolume_mult:
-    mean: 1
-    max: 2
+    mean: 0.5
+    max: 1.5
   fault_mult:
-    min: 1.0e-3
+    min: 1.0e-5
     max: 1
     loguniform: true
   relative_permeability:
-    scheme: global
-    interpolate: true
+    scheme: individual
+    interpolate: false
     regions:
       - id: None
         swirr:
@@ -80,100 +83,97 @@ model_parameters:
           base: 0.07
           max: 0.09
         swcr:
-          min: 0.30
-          base: 0.325
-          max: 0.35
+          min: 0.1
+          base: 0.2
+          max: 0.3
         sorw:
           min: 0.2
           base: 0.25
           max: 0.3
         sorg:
-          min: 0.4
-          base: 0.45
-          max: 0.5
+          min: 0.1
+          base: 0.15
+          max: 0.2
         sgcr:
           min: 0.03
           base: 0.055
           max: 0.08
         krwend:
-          min: 0.5
-          base: 0.6
-          max: 0.7
-        kroend:
           min: 0.4
-          base: 0.6
-          max: 0.8
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
         krgend:
           min: 0.9
           base: 0.95
           max: 1.0
         nw:
-          min: 0.5
-          base: 1.5
-          max: 2.5
+          min: 1.5
+          base: 2.25
+          max: 3.0
         now:
-          min: 0.5
-          base: 0.75
-          max: 1.0
+          min: 1.5
+          base: 2.25
+          max: 3.0
         ng:
-          min: 1.0
-          base: 1.25
-          max: 1.5
+          min: 1.5
+          base: 2.25
+          max: 3.0
         nog:
           min: 1.5
-          base: 1.75
-          max: 2.0
+          base: 2.25
+          max: 3.0
   equil:
     scheme: regions_from_sim
     regions:
       - id: None
-        datum_depth: 2575
+        datum_depth: 2582
         datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2675
-          max: 2725
+          min: 260
+          max: 280
         goc_depth:
-          min: 2575
+          min: 2560
           max: 2600
+        owc_depth:
+          min: 2670
+          max: 2725
       - id: 2
         datum_depth: 2500
         datum_pressure:
           min: 250
-          max: 275
-        owc_depth:
-          min: 2555
-          max: 2615
+          max: 270
         goc_depth:
-          min: 2470
-          max: 2530
+          min: 2475
+          max: 2525
+        owc_depth:
+          min: 2565
+          max: 2605
       - id: 3
         datum_depth: 2582
         datum_pressure:
-          min: 250
-          max: 275
-        owc_depth:
-          min: 2600
-          max: 2640
+          min: 260
+          max: 280
         goc_depth:
           min: 2560
           max: 2600
+        owc_depth:
+          min: 2601
+          max: 2640
       - id: 4
         datum_depth: 2200
         datum_pressure:
-          min: 200
-          max: 250
-        owc_depth:
-          min: 2350
-          max: 2450
+          min: 260
+          max: 280
         goc_depth:
-          min: 2150
-          max: 2250
-  rock_compressibility:
-    reference_pressure: 277
-    min: 4.8e-5
-    max: 5.2e-5
+          min: 2175
+          max: 2225
+        owc_depth:
+          min: 2375
+          max: 2425
+
   aquifer:
     scheme: individual
     fraction: 0.25
