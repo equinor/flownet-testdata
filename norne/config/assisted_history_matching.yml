@@ -2,7 +2,7 @@ name: Norne
 
 flownet:
   data_source:
-    simulation:      
+    simulation:
       input_case: ../input_model/norne/NORNE_ATW2013
       vectors:
         WBHP:
@@ -146,33 +146,34 @@ model_parameters:
           min: 250
           max: 270
         goc_depth:
-          min: 2565
-          max: 2605
-        owc_depth:
           min: 2475
           max: 2525
+        owc_depth:
+          min: 2565
+          max: 2605
       - id: 3
         datum_depth: 2582
         datum_pressure:
           min: 260
           max: 280
         goc_depth:
-          min: 2600
-          max: 2640
-        owc_depth:
           min: 2560
           max: 2600
+        owc_depth:
+          min: 2601
+          max: 2640
       - id: 4
         datum_depth: 2200
         datum_pressure:
           min: 260
           max: 280
         goc_depth:
-          min: 2375
-          max: 2425
-        owc_depth:
           min: 2175
           max: 2225
+        owc_depth:
+          min: 2375
+          max: 2425 
+
   aquifer:
     scheme: individual
     fraction: 0.25
