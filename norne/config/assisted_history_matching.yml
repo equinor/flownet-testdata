@@ -172,7 +172,7 @@ model_parameters:
           max: 2225
         owc_depth:
           min: 2375
-          max: 2425 
+          max: 2425
 
   aquifer:
     scheme: individual
