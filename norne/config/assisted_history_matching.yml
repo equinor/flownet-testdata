@@ -33,6 +33,8 @@ flownet:
   training_set_end_date: 2005-01-31
   fault_tolerance: 0.0001
   max_distance_fraction: 0.10
+  prod_control_mode: RESV
+  inj_control_mode: RATE
 
 ert:
   static_include_files: ./norne_static
