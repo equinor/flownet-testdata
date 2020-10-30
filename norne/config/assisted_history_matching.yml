@@ -28,8 +28,8 @@ flownet:
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
-  perforation_handling_strategy: time_avg_open_location
-  fast_pyscal: false
+  perforation_handling_strategy: multiple_based_on_workovers
+  fast_pyscal: true
   training_set_end_date: 2005-01-31
   fault_tolerance: 0.0001
   max_distance_fraction: 0.10
