@@ -37,12 +37,12 @@ flownet:
 ert:
   static_include_files: ./norne_static
   realizations:
-    num_realizations: 10
+    num_realizations: 250
     required_success_percent: 20
     max_runtime: 500
   queue:
     system: LOCAL
-    max_running: 1
+    max_running: 20
   ensemble_weights:
     - 4
     - 2
