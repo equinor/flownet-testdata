@@ -14,6 +14,7 @@ flownet:
         WGPR:
           rel_error: 0.1
           min_error: 100000
+      well_logs: true
     concave_hull: true
   constraining:
     kriging:
