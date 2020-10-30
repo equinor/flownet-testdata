@@ -15,6 +15,21 @@ flownet:
           rel_error: 0.1
           min_error: 100000
     concave_hull: true
+  constraining:
+    kriging:
+      enabled: false
+      n: 20
+      n_lags: 6
+      anisotropy_scaling_z: 10
+      variogram_model: spherical
+      permeability_variogram_parameters:
+        sill: 0.75
+        range: 1000
+        nugget: 0
+      porosity_variogram_parameters:
+        sill: 0.05
+        range: 1000
+        nugget: 0
   phases:
     - oil
     - gas
