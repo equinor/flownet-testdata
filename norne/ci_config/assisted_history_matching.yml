@@ -6,6 +6,9 @@ flownet:
   additional_flow_nodes: 2
   additional_node_candidates: 100
   max_distance_fraction: 0.05
+  constraining:
+    kriging:
+      enabled: true
 
 ert:
   realizations:
