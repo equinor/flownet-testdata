@@ -34,4 +34,4 @@ model_parameters:
     size_in_bulkvolumes:
       min: 1
   relative_permeability:
-    scheme: individual
+    scheme: global
