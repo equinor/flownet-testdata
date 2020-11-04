@@ -33,3 +33,5 @@ model_parameters:
   aquifer:
     size_in_bulkvolumes:
       min: 1
+  relative_permeability:
+    scheme: individual
