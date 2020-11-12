@@ -45,10 +45,10 @@ ert:
     max_running: 5
   ensemble_weights: [4, 2, 1]
   analysis:
-    metric: "[RMSE,MAE]"
-    quantity: "[WOPR:BR-P-,WBHP:BR-P-]"
-    start: "2000-01-01"
-    end: "2010-01-01"
+    metric: [RMSE, MAE]
+    quantity: [WOPR:BR-P-, WBHP:BR-P-]
+    start: 2000-01-01
+    end: 2010-01-01
     outfile: analysis_metrics_iteration
 
 model_parameters:
