@@ -5,6 +5,8 @@
 flownet:
   additional_flow_nodes: 10
   additional_node_candidates: 100
+  hyperopt:
+    n_runs: 1
 ert:
   realizations:
     num_realizations: 2

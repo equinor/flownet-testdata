@@ -19,10 +19,17 @@ flownet:
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 999
-  perforation_handling_strategy: bottom_point  # bottom_point #multiple
+  perforation_handling_strategy: bottom_point
   fast_pyscal: true
-  training_set_fraction: 0.8  # Fraction of observations (from 0 to 1) to use as training data
+  training_set_fraction: 0.8
   fault_tolerance: 0.1
+  hyperopt:
+    n_runs: 10
+    mode: tpe
+    loss:
+      keys: ["WOPR:PROD", "WWPR:PROD"]
+      factors: [0.5, 0.5]
+      metric: RMSE
 ert:
   static_include_files: ./egg_static
   realizations:
@@ -43,7 +50,12 @@ ert:
     - 1
     - 1
     - 1
-
+  analysis:
+    metric: "[RMSE,MAE]"
+    quantity: "[WOPR:PROD,WWPR:PROD]"
+    start: "2011-01-01"
+    end: "2016-06-01"
+    outfile: analysis_metrics_iteration
 model_parameters:
   permeability:
     min: 10
