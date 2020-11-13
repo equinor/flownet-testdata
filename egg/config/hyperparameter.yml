@@ -64,10 +64,10 @@ model_parameters:
     min: 0.01
     max: 0.35
   bulkvolume_mult:
-    min: 1
+    min: ["UNIFORM", 1, 2]
     max: 20
   relative_permeability:
-    scheme: global
+    scheme: ["UNIFORM_CHOICE", "global", "individual"]
     regions:
       - id: None
         swirr:

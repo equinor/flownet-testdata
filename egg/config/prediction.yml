@@ -6,10 +6,10 @@ ert:
   realizations:
     num_realizations: 250
     required_success_percent: 80
-    max_runtime: 300  # Maximum runtime of on single realization in seconds
+    max_runtime: 300
   simulator:
     name: Flow
   queue:
-    system: LOCAL  # LOCAL or LSF
+    system: LOCAL
     name: mr
-    max_running: 10  # Maximum number of simultaneous runs
+    max_running: 10
