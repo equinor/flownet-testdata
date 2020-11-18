@@ -86,7 +86,7 @@ model_parameters:
   fault_mult:
     min: 1.0e-5
     max: 1
-    loguniform: true
+    distribution: logunif
   relative_permeability:
     scheme: individual
     interpolate: false
@@ -199,4 +199,4 @@ model_parameters:
     size_in_bulkvolumes:
       min: 1.0e-6
       max: 2
-      loguniform: true
+      distribution: logunif
