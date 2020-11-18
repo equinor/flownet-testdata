@@ -59,7 +59,7 @@ model_parameters:
     min: 0.05
     max: 0.3
   bulkvolume_mult:
-    mean: 0.17
+    min: 0.17
     max: 0.68
   fault_mult:
     min: 1.0e-9
