@@ -7,8 +7,6 @@ ert:
     num_realizations: 250
     required_success_percent: 80
     max_runtime: 300
-  simulator:
-    name: Flow
   queue:
     system: LOCAL
     name: mr
