@@ -70,13 +70,13 @@ model_parameters:
     regions:
       - id: None
         swirr:
-          min: 0.0
+          min: 0.01
           max: 0.05
         swl:
           min: 0.2
           max: 0.55
         swcr:
-          min: 0.0
+          min: 0.01
           max: 0.05
         sorw:
           min: 0.1
