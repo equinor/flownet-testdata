@@ -55,6 +55,7 @@ model_parameters:
   permeability:
     min: 0.1
     max: 2000
+    distribution: logunif
   porosity:
     min: 0.05
     max: 0.3
