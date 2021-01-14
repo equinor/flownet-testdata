@@ -95,12 +95,12 @@ model_parameters:
       - id: None
         swirr:
           min: 0.01
-          base: 0.025
-          max: 0.04
+          base: 0.01
+          max: 0.01
         swl:
           min: 0.05
-          base: 0.07
-          max: 0.09
+          base: 0.05
+          max: 0.05
         swcr:
           min: 0.1
           base: 0.2
