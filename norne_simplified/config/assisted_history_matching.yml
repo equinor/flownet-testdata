@@ -14,7 +14,7 @@ flownet:
         WGPR:
           rel_error: 0.1
           min_error: 100000
-      layers: [[1,4],[5,22]]
+      layers: [[1, 4], [5, 22]]
       well_logs: true
     concave_hull: true
   constraining:
