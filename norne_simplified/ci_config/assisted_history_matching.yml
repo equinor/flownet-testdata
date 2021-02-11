@@ -1,0 +1,37 @@
+# Note that this file should ONLY contain settings
+# related to getting CI through in a practical amount of time.
+# All other settings should be set in the base configuration file.
+
+flownet:
+  additional_flow_nodes: 2
+  additional_node_candidates: 100
+  max_distance_fraction: 0.05
+  constraining:
+    kriging:
+      enabled: true
+
+ert:
+  realizations:
+    num_realizations: 2
+    required_success_percent: 40
+    max_runtime: 180
+  queue:
+    max_running: 2
+  ensemble_weights:
+    - 1
+
+model_parameters:
+  porosity:
+    min: 0.05
+    max: 0.3
+  bulkvolume_mult:
+    mean: 10
+    max: 11
+  fault_mult:
+    min: 0.9
+    max: 1.1
+  aquifer:
+    size_in_bulkvolumes:
+      min: 1
+  relative_permeability:
+    scheme: global
