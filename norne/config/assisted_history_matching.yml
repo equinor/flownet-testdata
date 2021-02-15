@@ -90,7 +90,7 @@ model_parameters:
     distribution: logunif
   relative_permeability:
     scheme: individual
-    interpolate: false
+    interpolate: true
     regions:
       - id: None
         swirr:
