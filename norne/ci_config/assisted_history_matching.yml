@@ -29,8 +29,6 @@ model_parameters:
   fault_mult:
     min: 0.9
     max: 1.1
-  relative_permeability:
-    scheme: global
   aquifer:
     size_in_bulkvolumes:
       min: 1
