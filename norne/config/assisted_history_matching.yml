@@ -89,7 +89,7 @@ model_parameters:
     max: 1
     distribution: logunif
   relative_permeability:
-    scheme: regions_from_sim
+    scheme: individual
     interpolate: false
     regions:
       - id: None
