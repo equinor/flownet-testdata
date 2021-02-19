@@ -179,4 +179,3 @@ model_parameters:
         owc_depth:
           min: 2375
           max: 2425
-
