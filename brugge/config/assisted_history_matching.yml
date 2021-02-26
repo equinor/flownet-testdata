@@ -24,7 +24,7 @@ flownet:
     - oil
     - water
   cell_length: 100
-  additional_flow_nodes: 50
+  additional_flow_nodes: [50]
   additional_node_candidates: 1000
   hull_factor: 0.9
   random_seed: 123456
