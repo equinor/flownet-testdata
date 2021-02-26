@@ -28,9 +28,9 @@ flownet:
   additional_node_candidates: 1000
   hull_factor: 0.9
   random_seed: 123456
-  perforation_handling_strategy: bottom_point  # bottom_point, top_point or multiple
+  perforation_handling_strategy: bottom_point
   fast_pyscal: true
-  training_set_end_date: 2010-01-01  # YYYY-MM-DD. If defined training_set_fraction is calculated from this date
+  training_set_end_date: 2010-01-01
   fault_tolerance: 1.0e-5
 
 ert:
@@ -45,11 +45,11 @@ ert:
     max_running: 5
   ensemble_weights: [4, 2, 1]
   analysis:
-    metric: [RMSE, MAE]
-    quantity: [WOPR:BR-P-, WBHP:BR-P-]
-    start: 2000-01-01
-    end: 2010-01-01
-    outfile: analysis_metrics_iteration
+    - metric: [RMSE, MAE]
+      quantity: [WOPR:BR-P-, WBHP:BR-P-]
+      start: 2000-01-01
+      end: 2010-01-01
+      outfile: analysis_metrics_iteration
 
 model_parameters:
   permeability:

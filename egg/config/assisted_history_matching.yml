@@ -51,11 +51,11 @@ ert:
     - 1
     - 1
   analysis:
-    metric: [RMSE, MAE]
-    quantity: [WOPR:PROD, WWPR:PROD]
-    start: 2011-01-01
-    end: 2016-06-01
-    outfile: analysis_metrics_iteration
+    - metric: [RMSE, MAE]
+      quantity: [WOPR:PROD, WWPR:PROD]
+      start: 2011-01-01
+      end: 2016-06-01
+      outfile: analysis_metrics_iteration
 model_parameters:
   permeability:
     min: 10
