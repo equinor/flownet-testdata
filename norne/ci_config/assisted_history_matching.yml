@@ -3,7 +3,7 @@
 # All other settings should be set in the base configuration file.
 
 flownet:
-  additional_flow_nodes: 10
+  additional_flow_nodes: [50, 10]
   additional_node_candidates: 100
   max_distance_fraction: 0.05
   constraining:

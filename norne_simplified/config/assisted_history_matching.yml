@@ -41,7 +41,7 @@ flownet:
   pvt:
     rsvd: norne_static/rsvd_multiple.csv
   cell_length: 100
-  additional_flow_nodes: 100
+  additional_flow_nodes: [100]
   additional_node_candidates: 1000
   hull_factor: 1.2
   random_seed: 123456
