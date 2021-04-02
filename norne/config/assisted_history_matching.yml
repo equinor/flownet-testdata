@@ -204,4 +204,3 @@ model_parameters:
       min: 1.0e-6
       max: 2
       distribution: logunif
-
