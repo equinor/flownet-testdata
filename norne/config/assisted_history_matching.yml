@@ -187,8 +187,8 @@ model_parameters:
       - id: 4
         datum_depth: 2200
         datum_pressure:
-          min: 260
-          max: 280
+          min: 230
+          max: 250
         goc_depth:
           min: 2175
           max: 2225
