@@ -21,12 +21,6 @@ ert:
     - 1
 
 model_parameters:
-  porosity:
-    min: 0.05
-    max: 0.3
-  bulkvolume_mult:
-    mean: 10
-    max: 11
   fault_mult:
     min: 0.9
     max: 1.1
