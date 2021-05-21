@@ -3,7 +3,7 @@
 # All other settings should be set in the base configuration file.
 
 flownet:
-  additional_flow_nodes: [20, 40]
+  additional_flow_nodes: [20, 40, 20]
   additional_node_candidates: 100
   max_distance_fraction: 0.05
   constraining:
@@ -33,5 +33,4 @@ model_parameters:
   aquifer:
     size_in_bulkvolumes:
       min: 1
-  relative_permeability:
-    scheme: global
+
