@@ -16,8 +16,9 @@ flownet:
           min_error: 100000
       well_logs: true
       layers:
-        - [1, 3]
-        - [4, 22]
+        - [1, 4]
+        - [5, 19]
+        - [20, 22]
     concave_hull: true
   constraining:
     kriging:
@@ -43,8 +44,9 @@ flownet:
   pvt:
     rsvd: norne_static/rsvd_multiple.csv
   cell_length: 100
-  additional_flow_nodes: [500, 100]
+  additional_flow_nodes: [50, 50, 50]
   additional_node_candidates: 1000
+  place_nodes_in_volume_reservoir: true
   hull_factor: 1.2
   random_seed: 123456
   perforation_handling_strategy: multiple_based_on_workovers
@@ -54,7 +56,7 @@ flownet:
   max_distance_fraction: 0.10
   prod_control_mode: RESV
   inj_control_mode: RATE
-
+  prior_volume_distribution: voronoi_per_tube
 ert:
   static_include_files: ./norne_static
   realizations:
@@ -80,34 +82,55 @@ model_parameters:
   permeability:
     min: 1
     max: 1000
-    distribution: logunif
+    distribution: uniform
   porosity:
-    min: 0.05
+    min: 0
+    mean: 0.24
+    stddev: 0.03
     max: 0.35
-  bulkvolume_mult:
+    distribution: truncated_normal
+  porosity_regional_scheme: regions_from_sim
+  porosity_parameter_from_sim_model: FIPNUM
+  porosity_regional:
+    min: 0.25
+    max: 1.75
     mean: 1.0
-    max: 1.5
+    stddev: 0.3
+    distribution: truncated_normal
+  bulkvolume_mult:
+    min: 0.2
+    max: 1.8
+  bulkvolume_mult_regional_scheme: regions_from_sim
+  bulkvolume_mult_parameter_from_sim_model: FIPNUM
+  bulkvolume_mult_regional:
+    min: 0.2
+    max: 1.8
+    mean: 1.0
+    stddev: 0.75
+    distribution: truncated_normal
   fault_mult:
     min: 1.0e-5
     max: 1
-    distribution: logunif
   relative_permeability:
-    scheme: individual
+    scheme: regions_from_sim
+    region_parameter_from_sim_model: FIPNUM
+    swcr_add_to_swl: true
+    krwmax_add_to_krwend: true
     interpolate: false
     regions:
-      - id: None
+      - id: 1
         swirr:
           min: 0.01
           base: 0.01
           max: 0.01
         swl:
-          min: 0.05
-          base: 0.05
-          max: 0.05
+          min: 0.04
+          base: 0.12
+          max: 0.20
         swcr:
-          min: 0.1
-          base: 0.2
-          max: 0.3
+          min: 0.009
+          base: 0.01
+          max: 0.011
         sorw:
           min: 0.2
           base: 0.25
@@ -148,59 +171,924 @@ model_parameters:
           min: 1.5
           base: 2.25
           max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 2
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 3
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 4
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 5
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 6
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 7
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 8
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.04
+          base: 0.12
+          max: 0.20
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 9
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.06
+          base: 0.14
+          max: 0.22
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 10
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.06
+          base: 0.14
+          max: 0.22
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 11
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.06
+          base: 0.14
+          max: 0.22
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 12
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.06
+          base: 0.14
+          max: 0.22
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 13
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.11
+          base: 0.19
+          max: 0.27
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 14
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.11
+          base: 0.19
+          max: 0.27
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 15
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.11
+          base: 0.19
+          max: 0.27
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
+      - id: 16
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.11
+          base: 0.19
+          max: 0.27
+        swcr:
+          min: 0.009
+          base: 0.01
+          max: 0.011
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        krwmax:
+          min: 0.02
+          max: 0.06
   equil:
     scheme: regions_from_sim
     regions:
-      - id: None
+      - id: 1
         datum_depth: 2582
         datum_pressure:
-          min: 260
-          max: 280
+          min: 268
+          max: 269
         goc_depth:
-          min: 2560
-          max: 2600
+          min: 2577
+          base: 2582
+          max: 2587
+          distribution: triangular
         owc_depth:
-          min: 2670
-          max: 2725
+          min: 2687
+          base: 2692
+          max: 2697
+          distribution: triangular
       - id: 2
         datum_depth: 2500
         datum_pressure:
-          min: 250
-          max: 270
+          min: 263
+          max: 264
         goc_depth:
-          min: 2475
-          max: 2525
+          min: 2495 
+          base: 2500
+          max: 2505
+          distribution: triangular
         owc_depth:
-          min: 2565
-          max: 2605
+          min: 2580.5
+          base: 2585.5
+          max: 2590.5
+          distribution: triangular
       - id: 3
         datum_depth: 2582
         datum_pressure:
-          min: 260
-          max: 280
+          min: 269
+          max: 270
         goc_depth:
-          min: 2560
-          max: 2600
+          min: 2577
+          base: 2582
+          max: 2587
+          distribution: triangular
         owc_depth:
-          min: 2601
-          max: 2640
+          min: 2613
+          base: 2618
+          max: 2623
+          distribution: triangular
       - id: 4
         datum_depth: 2200
         datum_pressure:
-          min: 230
-          max: 250
+          min: 236
+          max: 237
         goc_depth:
-          min: 2175
-          max: 2225
+          min: 2195
+          base: 2200
+          max: 2205
+          distribution: triangular
         owc_depth:
-          min: 2375
-          max: 2425
-
-  aquifer:
-    scheme: individual
-    fraction: 0.25
-    delta_depth: 1000
-    size_in_bulkvolumes:
-      min: 1.0e-6
-      max: 2
-      distribution: logunif
+          min: 2395
+          base: 2400
+          max: 2405
+          distribution: triangular
+      - id: 5
+        datum_depth: 2585
+        datum_pressure:
+          min: 268
+          max: 269
+        goc_depth:
+          min: 2580
+          base: 2585
+          max: 2590
+          distribution: triangular
+        owc_depth:
+          min: 2688.3
+          base: 2693.3
+          max: 2698.3
+          distribution: triangular
