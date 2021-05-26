@@ -1,0 +1,206 @@
+name: Norne
+
+flownet:
+  data_source:
+    simulation:
+      input_case: ../input_model/norne/NORNE_ATW2013
+      vectors:
+        WBHP:
+          rel_error: 0.05
+          min_error: 10
+        WOPR:
+          rel_error: 0.1
+          min_error: 100
+        WGPR:
+          rel_error: 0.1
+          min_error: 100000
+      well_logs: true
+      layers:
+        - [1, 3]
+        - [4, 22]
+    concave_hull: true
+  constraining:
+    kriging:
+      enabled: false
+      n: 20
+      n_lags: 6
+      anisotropy_scaling_z: 10
+      variogram_model: spherical
+      permeability_variogram_parameters:
+        sill: 0.75
+        range: 1000
+        nugget: 0
+      porosity_variogram_parameters:
+        sill: 0.05
+        range: 1000
+        nugget: 0
+  phases:
+    - oil
+    - gas
+    - vapoil
+    - disgas
+    - water
+  pvt:
+    rsvd: norne_static/rsvd_multiple.csv
+  cell_length: 100
+  additional_flow_nodes: [500, 100]
+  additional_node_candidates: 1000
+  hull_factor: 1.2
+  random_seed: 123456
+  perforation_handling_strategy: multiple_based_on_workovers
+  fast_pyscal: true
+  training_set_end_date: 2005-01-31
+  fault_tolerance: 0.0001
+  max_distance_fraction: 0.10
+  prod_control_mode: RESV
+  inj_control_mode: RATE
+
+ert:
+  static_include_files: ./norne_static
+  realizations:
+    num_realizations: 250
+    required_success_percent: 20
+    max_runtime: 500
+  queue:
+    system: LOCAL
+    max_running: 20
+  ensemble_weights:
+    - 4
+    - 2
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+
+model_parameters:
+  permeability:
+    min: 1
+    max: 1000
+    distribution: logunif
+  porosity:
+    min: 0.05
+    max: 0.35
+  bulkvolume_mult:
+    mean: 1.0
+    max: 1.5
+  fault_mult:
+    min: 1.0e-5
+    max: 1
+    distribution: logunif
+  relative_permeability:
+    scheme: individual
+    interpolate: false
+    regions:
+      - id: None
+        swirr:
+          min: 0.01
+          base: 0.01
+          max: 0.01
+        swl:
+          min: 0.05
+          base: 0.05
+          max: 0.05
+        swcr:
+          min: 0.1
+          base: 0.2
+          max: 0.3
+        sorw:
+          min: 0.2
+          base: 0.25
+          max: 0.3
+        sorg:
+          min: 0.1
+          base: 0.15
+          max: 0.2
+        sgcr:
+          min: 0.03
+          base: 0.055
+          max: 0.08
+        krwend:
+          min: 0.4
+          base: 0.5
+          max: 0.6
+        kroend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        krgend:
+          min: 0.9
+          base: 0.95
+          max: 1.0
+        nw:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        now:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        ng:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+        nog:
+          min: 1.5
+          base: 2.25
+          max: 3.0
+  equil:
+    scheme: regions_from_sim
+    regions:
+      - id: None
+        datum_depth: 2582
+        datum_pressure:
+          min: 260
+          max: 280
+        goc_depth:
+          min: 2560
+          max: 2600
+        owc_depth:
+          min: 2670
+          max: 2725
+      - id: 2
+        datum_depth: 2500
+        datum_pressure:
+          min: 250
+          max: 270
+        goc_depth:
+          min: 2475
+          max: 2525
+        owc_depth:
+          min: 2565
+          max: 2605
+      - id: 3
+        datum_depth: 2582
+        datum_pressure:
+          min: 260
+          max: 280
+        goc_depth:
+          min: 2560
+          max: 2600
+        owc_depth:
+          min: 2601
+          max: 2640
+      - id: 4
+        datum_depth: 2200
+        datum_pressure:
+          min: 230
+          max: 250
+        goc_depth:
+          min: 2175
+          max: 2225
+        owc_depth:
+          min: 2375
+          max: 2425
+
+  aquifer:
+    scheme: individual
+    fraction: 0.25
+    delta_depth: 1000
+    size_in_bulkvolumes:
+      min: 1.0e-6
+      max: 2
+      distribution: logunif
