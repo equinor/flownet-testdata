@@ -1,0 +1,7 @@
+# Note that this file should ONLY contain settings
+# related to getting CI through in a practical amount of time.
+# All other settings should be set in the base configuration file.
+
+ert:
+  realizations:
+    num_realizations: 2
