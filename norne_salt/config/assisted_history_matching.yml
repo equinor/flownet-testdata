@@ -3,7 +3,7 @@ name: Norne
 flownet:
   data_source:
     simulation:
-      input_case: ../input_model/norne/NORNE_ATW2013
+      input_case: ../input_model/norne_salt/NORNE_ATW2013
       vectors:
         WBHP:
           rel_error: 0.05
