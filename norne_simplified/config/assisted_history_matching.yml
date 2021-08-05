@@ -4,19 +4,19 @@ flownet:
   data_source:
     simulation:
       input_case: ../input_model/norne_simplified/NORNE_ATW2013
-      vectors:
-        WBHP:
-          rel_error: 0.05
-          min_error: 10
-        WOPR:
-          rel_error: 0.1
-          min_error: 100
-        WGPR:
-          rel_error: 0.1
-          min_error: 100000
       layers: [[1, 4], [5, 22]]
       well_logs: true
     concave_hull: true
+    vectors:
+      WBHP:
+        rel_error: 0.05
+        min_error: 10
+      WOPR:
+        rel_error: 0.1
+        min_error: 100
+      WGPR:
+        rel_error: 0.1
+        min_error: 100000
   constraining:
     kriging:
       enabled: false

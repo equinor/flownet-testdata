@@ -4,13 +4,13 @@ flownet:
   data_source:
     simulation:
       input_case: ../input_model/egg/EGG_MODEL_ECL
-      vectors:
-        WBHP:
-          rel_error: 0.005
-          min_error: 1
-        WOPR:
-          rel_error: 0.01
-          min_error: 1
+    vectors:
+      WBHP:
+        rel_error: 0.005
+        min_error: 1
+      WOPR:
+        rel_error: 0.01
+        min_error: 1
   phases:
     - oil
     - water
