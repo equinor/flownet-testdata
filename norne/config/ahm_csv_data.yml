@@ -6,21 +6,21 @@ flownet:
       input_data: ../input_data/norne_production_data.csv
     simulation:
       input_case: ../input_model/norne/NORNE_ATW2013
-      vectors:
-        WBHP:
-          rel_error: 0.05
-          min_error: 10
-        WOPR:
-          rel_error: 0.1
-          min_error: 100
-        WGPR:
-          rel_error: 0.1
-          min_error: 100000
       well_logs: true
       layers:
         - [1, 3]
         - [4, 22]
     concave_hull: true
+    vectors:
+      WBHP:
+        rel_error: 0.05
+        min_error: 10
+      WOPR:
+        rel_error: 0.1
+        min_error: 100
+      WGPR:
+        rel_error: 0.1
+        min_error: 100000
     resampling: Q
   constraining:
     kriging:
