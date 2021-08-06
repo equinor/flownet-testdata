@@ -4,22 +4,22 @@ flownet:
   data_source:
     simulation:
       input_case: ../input_model/BRUGGE60K_FY-SF-KM-1-1_JAN2017/BRUGGE60K_FY-SF-KM-1-1
-      vectors:
-        WTHP:
-          rel_error: 0.01
-          min_error: 0.5
-        WBHP:
-          rel_error: 0.01
-          min_error: 2
-        WOPR:
-          rel_error: 0.01
-          min_error: 10
-        WGPR:
-          rel_error: 0.1
-          min_error: 100000
-        WWPR:
-          rel_error: 0.01
-          min_error: 10
+    vectors:
+      WTHP:
+        rel_error: 0.01
+        min_error: 0.5
+      WBHP:
+        rel_error: 0.01
+        min_error: 2
+      WOPR:
+        rel_error: 0.01
+        min_error: 10
+      WGPR:
+        rel_error: 0.1
+        min_error: 100000
+      WWPR:
+        rel_error: 0.01
+        min_error: 10
   phases:
     - oil
     - water
