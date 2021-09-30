@@ -11,3 +11,8 @@ ert:
     system: LOCAL  # LOCAL or LSF
     name: mr  # ignored when system is LOCAL
     max_running: 10  # Maximum number of simultaneous runs
+
+export:
+  csv_outfile: norne_flownet_predictions
+  quantity: [WOPR, WWPR, WBHP]
+  end_date: 2015-01-01
