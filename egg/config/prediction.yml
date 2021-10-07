@@ -10,4 +10,9 @@ ert:
   queue:
     system: LOCAL
     name: mr
-    max_running: 10
+    max_running: 4
+
+export:
+  csv_outfile: egg_flownet_predictions
+  quantity: [WOPR, WWPR, WBHP]
+  end_date: 2021-05-01
