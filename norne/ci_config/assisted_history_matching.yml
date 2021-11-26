@@ -14,7 +14,7 @@ ert:
   realizations:
     num_realizations: 2
     required_success_percent: 40
-    max_runtime: 180
+    max_runtime: 360
   queue:
     max_running: 2
   ensemble_weights:
